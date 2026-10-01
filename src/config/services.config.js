@@ -175,10 +175,10 @@ const services = [
       "Custom Solutions: Tailored designs that reflect your brand identity perfectly.",
     ],
     gallery: [
-      { src: website01, alt: "Website designed by Sri Simbha Ad Solution 1" },
-      { src: website02, alt: "Website designed by Sri Simbha Ad Solution 2" },
-      { src: website03, alt: "Website designed by Sri Simbha Ad Solution 3" },
-      { src: website04, alt: "Website designed by Sri Simbha Ad Solution 4" },
+      { src: website01, alt: "Website designed by Sri Simbha Ad Solutions 1" },
+      { src: website02, alt: "Website designed by Sri Simbha Ad Solutions 2" },
+      { src: website03, alt: "Website designed by Sri Simbha Ad Solutions 3" },
+      { src: website04, alt: "Website designed by Sri Simbha Ad Solutions 4" },
     ],
   },
   {

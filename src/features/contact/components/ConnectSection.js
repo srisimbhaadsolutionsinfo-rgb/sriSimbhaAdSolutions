@@ -15,7 +15,7 @@ import {
 } from "../data/connect.data";
 
 const contactRowClass =
-  "flex items-center gap-2 rounded-pill bg-gray-100 px-4 py-2 font-medium text-black shadow-sm transition hover:opacity-80 dark:bg-white dark:text-black";
+  "flex items-center gap-2 rounded-pill surface-control px-4 py-2 font-medium text-[color:var(--color-text)] transition hover:opacity-80 dark:bg-white dark:text-black";
 
 /**
  * Pre-footer "connect" block.
@@ -34,9 +34,9 @@ const ConnectSection = () => {
   return (
     <section
       aria-label="Get in touch"
-      className="border border-gray-200 bg-surface-muted px-6 section-y-sm text-black transition-colors duration-500 dark:border-gray-800 dark:bg-[#0F0F0F] dark:text-white sm:px-12 lg:px-20"
+      className="border-b border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-6 section-y-sm text-[color:var(--color-text)] transition-colors duration-500 dark:border-gray-800 dark:bg-[#0F0F0F] dark:text-white sm:px-12 lg:px-20"
     >
-      <div className="mb-12 flex flex-col items-center justify-between gap-6 border-b border-gray-300 pb-6 sm:flex-row sm:gap-0 dark:border-gray-700">
+      <div className="mb-12 flex flex-col items-center justify-between gap-6 border-b border-[color:var(--color-border)] pb-6 sm:flex-row sm:gap-0 dark:border-gray-700">
         <h2 className="text-h2 font-bold">{siteConfig.shortName}</h2>
 
         <nav aria-label="Social media">
@@ -76,7 +76,7 @@ const ConnectSection = () => {
             />
             <h3 className="text-xl font-semibold">{projectPrompt.title}</h3>
           </div>
-          <p className="mb-4 italic text-gray-600 dark:text-gray-400">
+          <p className="mb-4 italic text-[color:var(--color-text-muted)] dark:text-gray-400">
             {projectPrompt.subtitle}
           </p>
           <div className="flex flex-col gap-3">
@@ -110,7 +110,7 @@ const ConnectSection = () => {
                 />
                 <h3 className="text-xl font-semibold">{capability.title}</h3>
               </div>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <ul className="space-y-2 text-sm text-[color:var(--color-text-muted)] dark:text-gray-300">
                 {capability.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -120,7 +120,7 @@ const ConnectSection = () => {
         })}
       </div>
 
-      <div className="grid gap-10 border-t border-gray-300 pt-10 text-sm text-gray-700 sm:grid-cols-2 lg:grid-cols-3 dark:border-gray-700 dark:text-gray-400">
+      <div className="grid gap-10 border-t border-[color:var(--color-border)] pt-10 text-sm text-[color:var(--color-text-muted)] sm:grid-cols-2 lg:grid-cols-3 dark:border-gray-700 dark:text-gray-400">
         <div>
           <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
             Connect

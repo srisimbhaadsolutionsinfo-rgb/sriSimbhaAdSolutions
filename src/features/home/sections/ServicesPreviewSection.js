@@ -34,7 +34,7 @@ const ServicesPreviewSection = () => (
       >
         <motion.p
           variants={fadeUp}
-          className="mb-3 text-eyebrow text-brand-600 dark:text-brand-400"
+          className="mb-3 text-eyebrow text-brand-700 dark:text-brand-400"
         >
           What we do
         </motion.p>

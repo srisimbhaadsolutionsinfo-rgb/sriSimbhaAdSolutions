@@ -33,12 +33,12 @@ const HowItWorksSection = () => (
         return (
           <motion.li
             key={step.id}
-            className="rounded-xl border border-brand-400/20 bg-white/80 p-6 backdrop-blur-md transition-transform hover:scale-105 hover:shadow-2xl dark:bg-white/5"
+            className="rounded-xl border border-brand-400/20 bg-[color:var(--color-surface)] p-6 transition-transform hover:-translate-y-0.5 dark:bg-white/5"
             variants={fadeUp}
             custom={index}
           >
             <motion.div
-              className="mb-4 text-h2 text-brand-600 dark:text-brand-400"
+              className="mb-4 text-h2 text-brand-700 dark:text-brand-400"
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >

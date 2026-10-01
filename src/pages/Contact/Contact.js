@@ -29,7 +29,7 @@ const Contact = () => (
   // `pt-header` for the same reason as About: the hardcoded `pt-20` (80px)
   // under-cleared the 83px fixed header at every width from 640px up, putting
   // the breadcrumb 3px behind it. This page is the only other one affected.
-  <section className="relative flex min-h-viewport flex-col items-center overflow-hidden bg-white px-4 pb-10 pt-header text-gray-900 dark:bg-surface-dark dark:text-gray-100 sm:px-6">
+  <section className="relative flex min-h-viewport flex-col items-center overflow-hidden bg-[color:var(--color-surface)] px-4 pb-10 pt-header text-[color:var(--color-text)] dark:bg-surface-dark dark:text-gray-100 sm:px-6">
     <Seo
       title={contactPage.metaTitle}
       description={contactPage.intro}
@@ -51,10 +51,10 @@ const Contact = () => (
       variants={fadeUpLarge}
       custom={0}
     >
-      <h1 className="mb-6 text-h1 font-bold text-brand-600 dark:text-brand-400">
+      <h1 className="mb-6 text-h1 font-bold text-brand-700 dark:text-brand-400">
         {contactPage.title}
       </h1>
-      <p className="measure mx-auto text-lead font-light text-gray-700 dark:text-gray-300">
+      <p className="measure mx-auto text-lead font-light text-[color:var(--color-text-muted)] dark:text-gray-300">
         {contactPage.intro}
       </p>
     </motion.div>
@@ -77,21 +77,27 @@ const Contact = () => (
               {...(channel.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className="block cursor-pointer rounded-xl border border-gray-200 bg-white/50 p-6 text-center shadow-md backdrop-blur-md transition-all duration-300 hover:shadow-brand-300/30 sm:p-8 dark:border-gray-700 dark:bg-gray-800"
-              whileHover={{ scale: 1.05 }}
+              className="card-surface block cursor-pointer rounded-xl p-6 text-center sm:p-8"
+              whileHover={{ scale: 1.02 }}
             >
+              {/*
+               * The disc was `from-brand-400 to-orange-500` with a `text-white`
+               * glyph — the same 1.2:1 pairing that made the service-card icons
+               * invisible. It now uses the pale brand tint with a `brand-700`
+               * glyph (4.83:1), consistent with `ServiceCard`.
+               */}
               <span className="mb-5 flex justify-center">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-orange-500 shadow-lg ring-2 ring-brand-100 sm:h-16 sm:w-16 dark:ring-brand-900">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 ring-1 ring-brand-200 sm:h-16 sm:w-16 dark:from-brand-400 dark:bg-gradient-to-br dark:to-orange-500 dark:ring-white/10">
                   <Icon
-                    className="h-6 w-6 text-white sm:h-7 sm:w-7"
+                    className="h-6 w-6 text-brand-700 dark:text-gray-900 sm:h-7 sm:w-7"
                     aria-hidden="true"
                   />
                 </span>
               </span>
-              <h2 className="text-h3 font-semibold text-brand-600 dark:text-brand-400">
+              <h2 className="text-h3 font-semibold text-brand-700 dark:text-brand-400">
                 {channel.label}
               </h2>
-              <p className="mt-2 break-words text-sm font-light text-gray-700 dark:text-gray-300 sm:text-base md:text-lg">
+              <p className="mt-2 break-words text-sm font-light text-[color:var(--color-text-muted)] dark:text-gray-300 sm:text-base md:text-lg">
                 {channel.value}
               </p>
             </a>
@@ -117,13 +123,13 @@ const Contact = () => (
       viewport={inViewOnce}
       variants={fadeUpLarge}
     >
-      <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+      <h2 className="mb-4 text-xl font-semibold text-[color:var(--color-text)] dark:text-white">
         Areas we cover
       </h2>
       <ul className="flex flex-wrap justify-center gap-2">
         {serviceAreas.map((area) => (
           <li key={area}>
-            <span className="inline-flex items-center gap-1.5 rounded-pill bg-brand-50 px-3.5 py-1.5 text-sm font-medium text-brand-700 dark:bg-brand-950/40 dark:text-brand-300">
+            <span className="inline-flex items-center gap-1.5 rounded-pill bg-brand-50 px-3.5 py-1.5 text-sm font-medium text-brand-700 dark:bg-brand-500/10 dark:text-brand-300">
               <MapPin size={13} aria-hidden="true" />
               {area}
             </span>

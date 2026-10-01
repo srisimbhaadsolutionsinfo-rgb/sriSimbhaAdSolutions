@@ -317,7 +317,7 @@ const buildOgImage = async () => {
       <text x="600" y="300" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif"
         font-size="82" font-weight="700" fill="${INK}">Sri Simbha</text>
       <text x="600" y="392" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif"
-        font-size="82" font-weight="700" fill="${INK}">Ad Solution</text>
+        font-size="82" font-weight="700" fill="${INK}">Ad Solutions</text>
       <text x="600" y="470" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif"
         font-size="30" font-weight="500" fill="${INK}" opacity="0.75">LED Ads &#183; Tea Cup Printing &#183; Digital Marketing</text>
       <text x="600" y="518" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif"

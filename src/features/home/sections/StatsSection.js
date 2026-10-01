@@ -70,10 +70,21 @@ const StatsSection = () => {
   }, [prefersReducedMotion]);
 
   return (
+    /*
+     * `from-brand-500 to-orange-500` with white text measured 2.15:1 at the
+     * light end and 2.80:1 at the dark end — the "95+" numerals were barely
+     * readable, in *both* themes, because this band has no `dark:` variant and
+     * so was identical either way.
+     *
+     * The ramp is deepened to 700/700, which gives 5.02:1 and 5.90:1 against
+     * white. It is still unmistakably the brand amber and still a gradient
+     * across the band, so the section keeps its role as the one saturated
+     * moment on the page — it is simply readable now.
+     */
     <section
       ref={sectionRef}
       aria-label="Company statistics"
-      className="bg-gradient-to-r from-brand-500 to-orange-500 px-6 section-y-sm text-white sm:px-10"
+      className="bg-gradient-to-r from-brand-700 to-orange-700 px-6 section-y-sm text-white sm:px-10"
     >
       <motion.dl
         className="mx-auto grid max-w-container grid-cols-2 gap-8 text-center lg:grid-cols-4"

@@ -9,6 +9,7 @@ import Header from "./Header";
 import ThemeProvider from "../../../app/ThemeProvider";
 import { MOBILE_NAV_BREAKPOINT } from "../../../utils/constants";
 import { navigationItems } from "../../../config/navigation.config";
+import siteConfig from "../../../config/site.config";
 
 const renderHeader = (initialEntries = ["/"]) =>
   render(
@@ -30,7 +31,9 @@ describe("Header", () => {
   it("links the brand back to the home page", () => {
     renderHeader();
     expect(
-      screen.getByRole("link", { name: /sri simbha ad solution — home/i })
+      screen.getByRole("link", {
+        name: new RegExp(`${siteConfig.name} — home`, "i"),
+      })
     ).toHaveAttribute("href", "/");
   });
 
@@ -141,14 +144,44 @@ describe("Header", () => {
     expect(burger()).toHaveAttribute("aria-expanded", "false");
   });
 
-  it("does not lock body scrolling while the menu is open", async () => {
+  /*
+   * The panel is shorter than the viewport and sits over the page, so the page
+   * behind it must not scroll while it is open — on a phone, dragging on the
+   * panel's own padding moved the content underneath the visitor's thumb.
+   *
+   * This used to assert the opposite (`overflow` stays `""`). That was true when
+   * nothing locked the scroll, but it also encoded the real hazard: a lock that
+   * is never released leaves the entire site unscrollable after the menu closes.
+   * So the assertion now covers both halves — locked while open, and fully
+   * restored afterwards.
+   */
+  it("locks body scrolling while the menu is open and releases it on close", async () => {
     const user = userEvent.setup();
     const { container } = renderHeader();
+    const { body } = container.ownerDocument;
+
+    expect(body.style.overflow).toBe("");
 
     await user.click(burger());
+    expect(burger()).toHaveAttribute("aria-expanded", "true");
+    expect(body.style.overflow).toBe("hidden");
 
-    // A scroll lock here would leave the whole site unscrollable after close.
-    expect(container.ownerDocument.body.style.overflow).toBe("");
+    await user.click(burger());
+    expect(burger()).toHaveAttribute("aria-expanded", "false");
+    expect(body.style.overflow).toBe("");
+  });
+
+  it("releases the scroll lock when the menu closes via Escape", async () => {
+    const user = userEvent.setup();
+    const { container } = renderHeader();
+    const { body } = container.ownerDocument;
+
+    await user.click(burger());
+    expect(body.style.overflow).toBe("hidden");
+
+    await user.keyboard("{Escape}");
+    expect(burger()).toHaveAttribute("aria-expanded", "false");
+    expect(body.style.overflow).toBe("");
   });
 
   it("shows the mobile panel below the desktop breakpoint", () => {

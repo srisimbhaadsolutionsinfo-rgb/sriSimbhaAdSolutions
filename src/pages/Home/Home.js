@@ -36,7 +36,7 @@ const marqueeItems = services.map((service) => service.shortTitle);
  * than by loading it) got whatever metadata the previous route left behind.
  */
 const Home = () => (
-  <div className="min-h-viewport overflow-x-hidden bg-white text-black transition-colors duration-300 dark:bg-surface-dark dark:text-gray-100">
+  <div className="min-h-viewport overflow-x-hidden bg-[color:var(--color-surface)] text-[color:var(--color-text)] transition-colors duration-300 dark:bg-surface-dark dark:text-gray-100">
     <Seo title={null} description={siteConfig.description} path="/" />
     <StructuredData data={[buildWebSiteSchema(), buildLocalBusinessSchema()]} />
 

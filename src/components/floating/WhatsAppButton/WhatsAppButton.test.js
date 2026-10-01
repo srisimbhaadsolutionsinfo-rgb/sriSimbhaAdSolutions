@@ -8,7 +8,7 @@ describe("WhatsAppButton", () => {
     render(<WhatsAppButton />);
     expect(
       screen.getByRole("link", {
-        name: /chat with sri simbha ad solution on whatsapp/i,
+        name: new RegExp(`chat with ${siteConfig.shortName} on whatsapp`, "i"),
       })
     ).toBeInTheDocument();
   });

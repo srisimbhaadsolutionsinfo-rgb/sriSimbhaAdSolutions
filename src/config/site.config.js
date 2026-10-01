@@ -6,12 +6,12 @@
  * of hardcoding literals.
  */
 
-const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER || "918790359681";
+const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER || "917013160560";
 
 const siteConfig = {
-  name: "Sri Simbha Ad Solution",
-  shortName: "Sri Simbha Ad Solution",
-  legalName: "SriSimbhaAdSolution",
+  name: "Sri Simbha Ad Solutions",
+  shortName: "Sri Simbha Ad Solutions",
+  legalName: "SriSimbhaAdSolutions",
   tagline: "We Don’t Just Show Ads. We Command Attention.",
   url: (process.env.REACT_APP_SITE_URL || "https://simbha.vercel.app").replace(
     /\/$/,
@@ -20,9 +20,9 @@ const siteConfig = {
   locale: "en_IN",
 
   description:
-    "Sri Simbha Ad Solution is a Visakhapatnam based advertising agency offering LED display ads, tea cup printing, digital marketing, website building, ads on wheels and ad film production.",
+    "Sri Simbha Ad Solutions is a Visakhapatnam based advertising agency offering LED display ads, tea cup printing, digital marketing, website building, ads on wheels and ad film production.",
 
-  logoAlt: "Sri Simbha Ad Solution logo",
+  logoAlt: "Sri Simbha Ad Solutions logo",
 
   themeColor: "#facc15",
 
@@ -78,10 +78,10 @@ const siteConfig = {
   },
 
   contact: {
-    email: "simbhaadagency.info@gmail.com",
-    emailSubject: "Enquiry for Sri Simbha Ad Solution",
-    phone: "+91 87903 59681",
-    phoneDigits: "918790359681",
+    email: "srisimbhaadsolutions.info@gmail.com",
+    emailSubject: "Enquiry for Sri Simbha Ad Solutions",
+    phone: "+91 70131 60560",
+    phoneDigits: "917013160560",
     whatsappNumber: WHATSAPP_NUMBER,
     whatsappMessage:
       "Hi Sri Simbha Team, I'm interested in your advertising services!",

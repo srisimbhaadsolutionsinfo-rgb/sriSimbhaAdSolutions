@@ -25,7 +25,7 @@ export const servicesBreadcrumbs = [
  * are one loop over one array instead of six blocks of duplicated JSX.
  */
 const Services = () => (
-  <div className="relative mt-16 min-h-viewport overflow-hidden bg-gray-100 px-4 py-10 text-gray-900 dark:bg-surface-dark dark:text-gray-100 sm:px-6 lg:px-10">
+  <div className="relative mt-16 min-h-viewport overflow-hidden bg-[color:var(--color-surface)] px-4 py-10 text-[color:var(--color-text)] dark:bg-surface-dark dark:text-gray-100 sm:px-6 lg:px-10">
     <Seo
       title="Advertising Services in Visakhapatnam"
       description="LED display ads, tea cup printing, digital marketing, website building, ads on wheels and ad film production. One Visakhapatnam agency for every advertising channel."
@@ -47,10 +47,10 @@ const Services = () => (
         viewport={inViewOnce}
         variants={fadeUp}
       >
-        <h1 className="mb-4 text-h1 font-bold text-brand-600 dark:text-brand-400">
+        <h1 className="mb-4 text-h1 font-bold text-brand-700 dark:text-brand-400">
           Our Services
         </h1>
-        <p className="measure-narrow mx-auto text-lead font-light text-gray-600 dark:text-gray-300">
+        <p className="measure-narrow mx-auto text-lead font-light text-[color:var(--color-text-muted)] dark:text-gray-300">
           Explore the wide range of advertising services we provide to elevate
           your brand’s visibility.
         </p>

@@ -17,8 +17,19 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /*
+   * The page surface.
+   *
+   * `bg-white` was the single biggest reason light mode read as an unfinished
+   * theme: a pure-white page left white cards with no edge, and pure-white
+   * behind full-strength text is harsh. This now paints `--color-surface`
+   * (warm off-white in light, unchanged near-black in dark), and text uses the
+   * charcoal `--color-text` rather than Tailwind's `gray-900` black.
+   */
   body {
-    @apply font-inter bg-white text-gray-900 antialiased;
+    @apply font-inter antialiased;
+    background-color: var(--color-surface);
+    color: var(--color-text);
     margin: 0;
     min-height: 100vh;
     transition:
@@ -27,8 +38,8 @@
   }
 
   .dark body {
-    @apply text-gray-100;
     background-color: var(--color-surface);
+    color: var(--color-text);
   }
 
   /*
@@ -96,6 +107,54 @@
 /* ------------------------------------------------------------------ */
 
 @layer components {
+  /* --- Light-theme surfaces ------------------------------------------- */
+  /*
+   * The three surfaces a page is built from, in tokens rather than literals.
+   *
+   * Light mode previously asked for `bg-white/30 ... backdrop-blur-lg
+   * shadow-xl` on cards — frosted glass. Glass reads as premium on a dark
+   * photographic surface; on a warm paper background it makes the card paler
+   * than the page, so the card stops being a card. Depth on light comes from
+   * an opaque surface one step above the page, a hairline, and a low-opacity
+   * shadow. Dark mode keeps its own translucent treatment via `dark:`.
+   */
+  .card-surface {
+    background-color: var(--color-surface-1);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    transition:
+      box-shadow var(--duration-base) ease,
+      border-color var(--duration-base) ease,
+      transform var(--duration-base) ease;
+  }
+
+  .card-surface:hover {
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .dark .card-surface {
+    background-color: var(--color-surface-1);
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Alternate full-width band, for the up/down rhythm down a long page. */
+  .band-muted {
+    background-color: var(--color-surface-muted);
+  }
+
+  /* A recessed control surface — inputs, and the header's menu panel. */
+  .surface-control {
+    background-color: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+  }
+
+  .dark .surface-control {
+    background-color: var(--color-surface-2);
+    border-color: var(--color-border);
+  }
+
   /* --- Skip link (keyboard / screen-reader users) --- */
   .skip-link {
     @apply absolute left-4 top-4 z-[100] -translate-y-24 rounded-md bg-brand-500 px-4 py-2 font-semibold text-gray-900 transition-transform;
@@ -119,14 +178,27 @@
    * `.mobile-menu`, which no longer parks itself outside the viewport.
    */
   .site-header {
-    @apply fixed inset-x-0 top-0 z-50 border-b shadow-lg backdrop-blur-md;
-    background-color: rgb(255 255 255 / 0.7);
-    border-color: #e5e7eb;
+    @apply fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md;
+    /*
+     * A warm, slightly translucent surface rather than 70% pure white.
+     *
+     * The old value (`rgb(255 255 255 / 0.7)`) was pure white, which over a
+     * warm off-white page produced a milky, cool-tinted bar — the page and the
+     * header read as two different materials. Tinting the glass with the same
+     * warm neutral as the page keeps them one material.
+     *
+     * `shadow-lg` is gone: it is a 20px blur designed for dark UI and read as
+     * a heavy smudge under a light header. Depth here is a hairline plus
+     * `--shadow-nav`, which is what a fixed bar over content actually needs.
+     */
+    background-color: rgb(251 250 248 / 0.82);
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-nav);
   }
 
   .dark .site-header {
     background-color: rgb(17 24 39 / 0.8);
-    border-color: #1f2937;
+    border-color: var(--color-border);
   }
 
   .logo-container {
@@ -196,6 +268,17 @@
     }
   }
 
+  /*
+   * Navigation links.
+   *
+   * Hover and active use `--color-brand-ink` (#b45309, 5.02:1) rather than
+   * `--color-brand-500` (#f59e0b, 2.15:1). The fill amber as link text was
+   * effectively invisible on the light header while looking correct in dark
+   * mode, where `.dark` maps `--color-brand-ink` to the bright `#facc15`.
+   *
+   * The active state pairs colour with a tint *and* an underline, so it is not
+   * communicated by hue alone.
+   */
   .nav-link {
     padding: 10px 20px;
     border-radius: var(--radius-md);
@@ -203,25 +286,31 @@
       color var(--duration-base) ease-in-out,
       background-color var(--duration-base) ease-in-out,
       transform var(--duration-base) ease-in-out;
-    color: #1f2937;
+    color: var(--color-text);
     text-decoration: none;
     display: inline-block;
     /* Was measured at 20px tall, under the 24px WCAG 2.2 minimum. */
     min-height: 2.75rem;
     line-height: 1.5rem;
+    font-weight: 500;
   }
 
   .dark .nav-link {
-    color: #e5e7eb;
+    color: var(--color-text-muted);
   }
 
   .nav-link:hover {
-    color: var(--color-brand-500);
+    color: var(--color-brand-ink);
     transform: scale(1.05);
   }
 
   .nav-link[aria-current="page"] {
-    color: var(--color-brand-500);
+    color: var(--color-brand-ink);
+    background-color: rgb(245 158 11 / 0.1);
+    box-shadow: inset 0 -2px 0 0 var(--color-brand-ink);
+  }
+
+  .dark .nav-link[aria-current="page"] {
     background-color: rgb(250 204 21 / 0.12);
   }
 
@@ -305,9 +394,9 @@
      * border and a shadow give the same sense of depth with none of that
      * fragility, and it costs no compositing work while the menu is open.
      */
-    background: #ffffff;
-    border-bottom: 1px solid rgb(0 0 0 / 0.08);
-    box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.25);
+    background: var(--color-surface-1);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-modal);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -316,7 +405,7 @@
 
   .dark .menu-list {
     background: #0f172a;
-    border-bottom-color: rgb(255 255 255 / 0.08);
+    border-bottom-color: var(--color-border);
     box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.6);
   }
 

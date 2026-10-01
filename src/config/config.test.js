@@ -11,7 +11,7 @@ import services, {
 
 describe("siteConfig", () => {
   it("exposes a full international phone number for tel: links", () => {
-    expect(buildTelUrl()).toBe("tel:+918790359681");
+    expect(buildTelUrl()).toBe("tel:+917013160560");
   });
 
   it("builds a mailto link with an encoded subject", () => {

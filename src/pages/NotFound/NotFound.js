@@ -13,7 +13,7 @@ import { navigationItems } from "../../config/navigation.config";
  * both a link home and the primary navigation.
  */
 const NotFound = () => (
-  <section className="flex min-h-viewport flex-col items-center justify-center gap-6 bg-white px-4 py-20 text-center text-gray-900 dark:bg-surface-dark dark:text-gray-100">
+  <section className="flex min-h-viewport flex-col items-center justify-center gap-6 bg-[color:var(--color-surface)] px-4 py-20 text-center text-[color:var(--color-text)] dark:bg-surface-dark dark:text-gray-100">
     <Seo
       title="Page not found"
       description="The page you are looking for could not be found."
@@ -21,7 +21,7 @@ const NotFound = () => (
       noIndex
     />
 
-    <p className="text-eyebrow text-brand-600 dark:text-brand-400">Error 404</p>
+    <p className="text-eyebrow text-brand-700 dark:text-brand-400">Error 404</p>
     <h1 className="text-h1 font-extrabold">Page not found</h1>
     <p role="status" className="max-w-md text-gray-700 dark:text-gray-300">
       We couldn’t find the page you were looking for. It may have been moved or

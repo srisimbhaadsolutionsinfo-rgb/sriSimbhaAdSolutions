@@ -18,7 +18,7 @@ const BenefitsGrid = ({ benefits }) => {
       viewport={inViewOnce}
       variants={fadeUp}
     >
-      <h2 className="mb-6 text-center text-h2 font-semibold text-brand-600 dark:text-brand-400">
+      <h2 className="mb-6 text-center text-h2 font-semibold text-brand-700 dark:text-brand-400">
         Key Benefits
       </h2>
 
@@ -29,15 +29,15 @@ const BenefitsGrid = ({ benefits }) => {
           return (
             <motion.li
               key={title || index}
-              className="flex flex-col gap-1 rounded-xl bg-gray-100 p-4 shadow-sm transition-all duration-200 hover:shadow-md dark:bg-gray-800"
+              className="card-surface flex flex-col gap-1 rounded-xl p-5"
               variants={fadeUp}
               custom={index}
             >
-              <span className="text-base font-semibold text-gray-800 dark:text-brand-300 sm:text-lg">
+              <span className="text-base font-semibold text-[color:var(--color-text)] dark:text-brand-300 sm:text-lg">
                 {title}
               </span>
               {detail ? (
-                <span className="text-sm font-light leading-snug text-gray-600 dark:text-gray-300 sm:text-base">
+                <span className="text-sm font-light leading-snug text-[color:var(--color-text-muted)] dark:text-gray-300 sm:text-base">
                   {detail}
                 </span>
               ) : null}

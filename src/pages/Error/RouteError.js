@@ -31,7 +31,7 @@ const RouteError = () => {
   const isNotFound = status === 404;
 
   return (
-    <section className="relative flex min-h-viewport items-center justify-center overflow-hidden bg-white px-4 py-20 text-gray-900 dark:bg-surface-dark dark:text-gray-100">
+    <section className="relative flex min-h-viewport items-center justify-center overflow-hidden bg-[color:var(--color-surface)] px-4 py-20 text-[color:var(--color-text)] dark:bg-surface-dark dark:text-gray-100">
       <Seo
         title={isNotFound ? "Page not found" : "Something went wrong"}
         description="An unexpected error occurred."
@@ -41,8 +41,8 @@ const RouteError = () => {
 
       <DecorativeBlobs />
 
-      <div className="relative z-10 w-full max-w-lg rounded-3xl border border-brand-100 bg-white p-8 text-center shadow-xl backdrop-blur-sm dark:border-brand-900 dark:bg-gray-800 sm:p-10">
-        <h1 className="mb-4 text-display font-extrabold text-brand-600 dark:text-brand-400">
+      <div className="relative z-10 w-full max-w-lg rounded-3xl border border-brand-100 bg-[color:var(--color-surface)] p-8 text-center shadow-xl backdrop-blur-sm dark:border-brand-900 dark:bg-gray-800 sm:p-10">
+        <h1 className="mb-4 text-display font-extrabold text-brand-700 dark:text-brand-400">
           Oops!
         </h1>
         <h2 className="mb-4 text-xl font-semibold">

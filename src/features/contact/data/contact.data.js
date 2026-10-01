@@ -39,7 +39,7 @@ export const contactChannels = [
 
 export const contactPage = {
   title: "Contact Us",
-  metaTitle: "Contact Sri Simbha Ad Solution",
+  metaTitle: "Contact Sri Simbha Ad Solutions",
   intro:
     "Have questions, suggestions, or just want to say hello? We’re always here to help and connect. Call, message on WhatsApp, or send the enquiry form below and we will come back with a written quote — usually the same day.",
   breadcrumbs: [

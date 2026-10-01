@@ -21,13 +21,16 @@ const Field = ({ id, label, error, hint, children, className = "" }) => (
   <div className={cx("flex flex-col gap-1.5", className)}>
     <label
       htmlFor={id}
-      className="text-sm font-semibold text-gray-800 dark:text-gray-100"
+      className="text-sm font-semibold text-[color:var(--color-text)] dark:text-gray-100"
     >
       {label}
     </label>
     {children}
     {hint ? (
-      <p id={`${id}-hint`} className="text-xs text-gray-500 dark:text-gray-400">
+      <p
+        id={`${id}-hint`}
+        className="text-xs text-[color:var(--color-text-subtle)] dark:text-gray-400"
+      >
         {hint}
       </p>
     ) : null}
@@ -43,8 +46,23 @@ const Field = ({ id, label, error, hint, children, className = "" }) => (
   </div>
 );
 
+/*
+ * Form control.
+ *
+ * `border-gray-300` on `bg-white` measured only 1.24:1 against the page — the
+ * brief's "extremely light gray borders that disappear". The border now comes
+ * from `--color-border-strong` and the fill from `--color-surface-2`, so a field
+ * reads as a field without needing a heavy outline.
+ *
+ * The focus ring is `--color-brand-ink` rather than `brand-500`: the fill amber
+ * was 2.15:1 against white, which is not a visible focus indicator. `brand-700`
+ * is 5.02:1 and still unmistakably the brand.
+ *
+ * Error and success states are handled by `aria-invalid` + a sibling message,
+ * so the border colour changes are never the only signal.
+ */
 const controlClass =
-  "w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/40 dark:border-gray-600 dark:bg-gray-800 dark:text-white";
+  "w-full rounded-lg border border-[color:var(--color-border-strong)] bg-[color:var(--color-surface-2)] px-3 py-2.5 text-sm text-[color:var(--color-text)] transition-colors placeholder:text-[color:var(--color-text-subtle)] focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/30 aria-[invalid=true]:border-red-600 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-600/20 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-brand-400 dark:focus:ring-brand-400/30";
 
 /**
  * Enquiry form.
@@ -208,17 +226,17 @@ const EnquiryForm = ({ defaultService = "", className = "" }) => {
       onSubmit={handleSubmit}
       aria-labelledby={`${baseId}-heading`}
       className={cx(
-        "rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8 dark:border-gray-700 dark:bg-gray-800",
+        "card-surface rounded-2xl p-6 sm:p-8 dark:bg-gray-800",
         className
       )}
     >
       <h2
         id={`${baseId}-heading`}
-        className="mb-1 text-h3 font-bold text-gray-900 dark:text-white"
+        className="mb-1 text-h3 font-bold text-[color:var(--color-text)] dark:text-white"
       >
         Request a quote
       </h2>
-      <p className="mb-6 text-body text-gray-600 dark:text-gray-300">
+      <p className="mb-6 text-body text-[color:var(--color-text-muted)] dark:text-gray-300">
         Fill this in and choose how you would like to send it. Nothing is stored
         or sent anywhere until you press one of the buttons.
       </p>

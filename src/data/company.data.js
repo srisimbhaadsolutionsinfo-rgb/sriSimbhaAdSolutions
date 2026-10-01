@@ -74,7 +74,7 @@ export const milestones = [
   {
     id: "2025",
     year: "2025",
-    title: "Sri Simbha Ad Solution",
+    title: "Sri Simbha Ad Solutions",
     body: "Rebranded around a single studio — brand, film, digital and outdoor — so clients brief one team instead of five.",
   },
 ];

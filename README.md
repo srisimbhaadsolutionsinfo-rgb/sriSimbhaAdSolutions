@@ -1,4 +1,4 @@
-# Sri Simbha Ad Solution — marketing site
+# Sri Simbha Ad Solutions — marketing site
 
 Static single-page site for an advertising agency in Visakhapatnam. React 19 +
 React Router 7 on Create React App, styled with Tailwind. There is no backend:

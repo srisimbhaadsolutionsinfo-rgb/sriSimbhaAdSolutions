@@ -51,7 +51,7 @@ const Breadcrumbs = ({ items = [], className, showSchema = true }) => {
                   {isCurrent ? (
                     <span
                       aria-current="page"
-                      className="font-medium text-brand-600 dark:text-brand-400"
+                      className="font-medium text-brand-700 dark:text-brand-400"
                     >
                       {item.name}
                     </span>

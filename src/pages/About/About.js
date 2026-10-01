@@ -21,7 +21,7 @@ import { aboutPage } from "../../features/about/data/about.data";
 import { buildLocalBusinessSchema } from "../../utils/structuredData";
 
 const iconBubbleClass =
-  "flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-orange-500 shadow-md ring-2 ring-brand-100 dark:ring-brand-900";
+  "flex h-16 w-16 items-center justify-center rounded-full bg-brand-50 ring-1 ring-brand-200 dark:from-brand-400 dark:bg-gradient-to-br dark:to-orange-500 dark:ring-white/10";
 
 /** About route screen. */
 const About = () => {
@@ -53,7 +53,7 @@ const About = () => {
        * `min-h-viewport` is dropped: this section renders ~5,800px of content,
        * so a viewport minimum did nothing but imply a constraint never met.
        */}
-      <section className="relative flex flex-col items-center overflow-hidden bg-white px-4 pt-header pb-section text-gray-900 dark:bg-surface-dark dark:text-gray-100 sm:px-6">
+      <section className="relative flex flex-col items-center overflow-hidden bg-[color:var(--color-surface)] px-4 pt-header pb-section text-[color:var(--color-text)] dark:bg-surface-dark dark:text-gray-100 sm:px-6">
         <DecorativeBlobs />
 
         <div className="relative z-10 w-full max-w-4xl">
@@ -68,13 +68,13 @@ const About = () => {
           variants={stagger}
         >
           <motion.h1
-            className="mb-6 text-h1 font-bold text-brand-600 dark:text-brand-400"
+            className="mb-6 text-h1 font-bold text-brand-700 dark:text-brand-400"
             variants={fadeUpLarge}
           >
             {aboutPage.title}
           </motion.h1>
           <motion.p
-            className="measure mx-auto text-lead font-light text-gray-700 dark:text-gray-300"
+            className="measure mx-auto text-lead font-light text-[color:var(--color-text-muted)] dark:text-gray-300"
             variants={fadeUpLarge}
           >
             {aboutPage.intro}
@@ -89,7 +89,7 @@ const About = () => {
           viewport={inViewOnce}
           variants={stagger}
         >
-          <h2 className="mb-6 text-center text-h2 font-semibold text-brand-600 dark:text-brand-400">
+          <h2 className="mb-6 text-center text-h2 font-semibold text-brand-700 dark:text-brand-400">
             How we got here
           </h2>
           {aboutPage.story.map((paragraph, index) => (
@@ -97,7 +97,7 @@ const About = () => {
               key={index}
               variants={fadeUpLarge}
               custom={index}
-              className="measure mb-4 text-body-lg text-gray-700 dark:text-gray-300"
+              className="measure mb-4 text-body-lg text-[color:var(--color-text-muted)] dark:text-gray-300"
             >
               {paragraph}
             </motion.p>
@@ -118,18 +118,21 @@ const About = () => {
             return (
               <motion.li
                 key={principle.id}
-                className="rounded-2xl bg-gray-100 p-8 shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-brand-300/30 dark:bg-gray-800"
+                className="card-surface rounded-2xl p-8 transition-all duration-300 hover:-translate-y-0.5 dark:bg-gray-800"
                 variants={fadeUpLarge}
               >
                 <div className="mb-5 flex justify-center">
                   <div className={iconBubbleClass}>
-                    <Icon className="h-7 w-7 text-white" aria-hidden="true" />
+                    <Icon
+                      className="h-7 w-7 text-brand-700 dark:text-gray-900"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
-                <h2 className="text-center text-h3 font-semibold text-brand-600 dark:text-brand-400">
+                <h2 className="text-center text-h3 font-semibold text-brand-700 dark:text-brand-400">
                   {principle.title}
                 </h2>
-                <p className="mt-4 text-center text-base font-light leading-relaxed text-gray-700 dark:text-gray-300">
+                <p className="mt-4 text-center text-base font-light leading-relaxed text-[color:var(--color-text-muted)] dark:text-gray-300">
                   {principle.body}
                 </p>
               </motion.li>
@@ -145,7 +148,7 @@ const About = () => {
           viewport={inViewOnce}
           variants={stagger}
         >
-          <h2 className="mb-10 text-center text-h2 font-semibold text-brand-600 dark:text-brand-400">
+          <h2 className="mb-10 text-center text-h2 font-semibold text-brand-700 dark:text-brand-400">
             Milestones
           </h2>
 
@@ -161,13 +164,13 @@ const About = () => {
                   aria-hidden="true"
                   className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-brand-500 bg-white dark:bg-gray-900"
                 />
-                <p className="text-sm font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+                <p className="text-sm font-bold uppercase tracking-widest text-brand-700 dark:text-brand-400">
                   {milestone.year}
                 </p>
-                <h3 className="mt-1 text-lg font-semibold text-gray-900 dark:text-white">
+                <h3 className="mt-1 text-lg font-semibold text-[color:var(--color-text)] dark:text-white">
                   {milestone.title}
                 </h3>
-                <p className="mt-1 text-body text-gray-700 dark:text-gray-300">
+                <p className="mt-1 text-body text-[color:var(--color-text-muted)] dark:text-gray-300">
                   {milestone.body}
                 </p>
               </motion.li>
@@ -183,7 +186,7 @@ const About = () => {
           viewport={inViewOnce}
           variants={stagger}
         >
-          <h2 className="mb-10 text-center text-h2 font-semibold text-brand-600 dark:text-brand-400">
+          <h2 className="mb-10 text-center text-h2 font-semibold text-brand-700 dark:text-brand-400">
             What we stand for
           </h2>
 
@@ -194,19 +197,19 @@ const About = () => {
               return (
                 <motion.li
                   key={value.id}
-                  className="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
+                  className="rounded-2xl card-surface border p-6 text-center dark:border-gray-700 dark:bg-gray-800"
                   variants={fadeUpLarge}
                 >
                   <span
                     aria-hidden="true"
-                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-brand-300 to-orange-400 text-white dark:from-brand-400 dark:to-orange-500"
+                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand-700 ring-1 ring-brand-200 dark:from-brand-400 dark:bg-gradient-to-br dark:to-orange-500 dark:text-gray-900"
                   >
                     <Icon size={26} />
                   </span>
-                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-base font-semibold text-[color:var(--color-text)] dark:text-white">
                     {value.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                  <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-text-muted)] dark:text-gray-300">
                     {value.body}
                   </p>
                 </motion.li>
@@ -223,7 +226,7 @@ const About = () => {
           viewport={inViewOnce}
           variants={stagger}
         >
-          <h2 className="mb-10 text-center text-h2 font-semibold text-brand-600 dark:text-brand-400">
+          <h2 className="mb-10 text-center text-h2 font-semibold text-brand-700 dark:text-brand-400">
             Why businesses choose us
           </h2>
 
@@ -234,7 +237,7 @@ const About = () => {
               return (
                 <motion.li
                   key={item.id}
-                  className="flex gap-4 rounded-2xl bg-gray-100 p-6 dark:bg-gray-800"
+                  className="card-surface flex gap-4 rounded-2xl p-6 dark:bg-gray-800"
                   variants={fadeUpLarge}
                 >
                   <Icon
@@ -242,10 +245,10 @@ const About = () => {
                     aria-hidden="true"
                   />
                   <div>
-                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-base font-semibold text-[color:var(--color-text)] dark:text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                    <p className="mt-1 text-sm leading-relaxed text-[color:var(--color-text-muted)] dark:text-gray-300">
                       {item.body}
                     </p>
                   </div>
@@ -265,17 +268,20 @@ const About = () => {
         >
           <div className="mb-5 flex justify-center">
             <div className={`${iconBubbleClass} animate-icon-float`}>
-              <TeamIcon className="h-7 w-7 text-white" aria-hidden="true" />
+              <TeamIcon
+                className="h-7 w-7 text-brand-700 dark:text-gray-900"
+                aria-hidden="true"
+              />
             </div>
           </div>
           <motion.h2
-            className="text-h2 font-semibold text-brand-600 dark:text-brand-400"
+            className="text-h2 font-semibold text-brand-700 dark:text-brand-400"
             variants={fadeUpLarge}
           >
             {aboutPage.team.title}
           </motion.h2>
           <motion.p
-            className="measure mt-4 text-body-lg font-light text-gray-700 dark:text-gray-300"
+            className="measure mt-4 text-body-lg font-light text-[color:var(--color-text-muted)] dark:text-gray-300"
             variants={fadeUpLarge}
           >
             {aboutPage.team.body}
@@ -290,20 +296,20 @@ const About = () => {
           viewport={inViewOnce}
           variants={stagger}
         >
-          <h2 className="mb-6 flex items-center justify-center gap-2 text-center text-h2 font-semibold text-brand-600 dark:text-brand-400">
+          <h2 className="mb-6 flex items-center justify-center gap-2 text-center text-h2 font-semibold text-brand-700 dark:text-brand-400">
             <MapPin className="h-6 w-6" aria-hidden="true" />
             Where we work
           </h2>
           <ul className="flex flex-wrap justify-center gap-2">
             {serviceAreas.map((area) => (
               <li key={area}>
-                <span className="inline-block rounded-pill bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700 dark:bg-brand-950/40 dark:text-brand-300">
+                <span className="inline-block rounded-pill bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700 dark:bg-brand-500/10 dark:text-brand-300">
                   {area}
                 </span>
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p className="mt-6 text-center text-sm text-[color:var(--color-text-muted)] dark:text-gray-400">
             Digital marketing, websites and ad film production are delivered
             remotely across India.
           </p>

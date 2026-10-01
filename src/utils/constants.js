@@ -13,7 +13,7 @@ export const BREAKPOINTS = {
  * Navigation switches to the mobile panel below the `lg` breakpoint.
  *
  * This used to be `md` (768px), which worked while the header wordmark was the
- * short "Simbha Ads". Widening the brand to "Sri Simbha Ad Solution" added
+ * short "Simbha Ads". Widening the brand to "Sri Simbha Ad Solutions" added
  * roughly 130px, and at 768–1023px the header could no longer fit the logo, the
  * wordmark, four nav links and the theme switch: "About Us" and "Contact Us"
  * wrapped onto two lines (48px -> 76px tall) and the theme switch was pushed

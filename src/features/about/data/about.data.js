@@ -13,7 +13,7 @@ import { Eye, Target, Users2 } from "lucide-react";
  */
 export const aboutPage = {
   title: "About Us",
-  metaTitle: "About Sri Simbha Ad Solution",
+  metaTitle: "About Sri Simbha Ad Solutions",
   intro:
     "We are an advertising agency based in Gajuwaka, Visakhapatnam. Since 2019 we have been putting brands in front of people who are already on the move — on LED screens in busy junctions, printed on the tea cup they are holding, on a vehicle that drives past their house, and on the phone in their hand.",
 

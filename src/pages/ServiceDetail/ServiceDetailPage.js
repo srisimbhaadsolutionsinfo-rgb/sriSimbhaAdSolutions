@@ -74,7 +74,7 @@ const ServiceDetailPage = () => {
       */}
       <div
         key={service.id}
-        className="relative z-0 overflow-x-hidden bg-white pt-4 text-gray-900 dark:bg-surface-dark dark:text-gray-100"
+        className="relative z-0 overflow-x-hidden bg-[color:var(--color-surface)] pt-4 text-[color:var(--color-text)] dark:bg-surface-dark dark:text-gray-100"
       >
         <DecorativeBlobs />
 
@@ -90,7 +90,7 @@ const ServiceDetailPage = () => {
             viewport={inViewOnce}
             variants={fadeUp}
           >
-            <h1 className="mb-6 text-h1 font-bold text-brand-600 dark:text-brand-400">
+            <h1 className="mb-6 text-h1 font-bold text-brand-700 dark:text-brand-400">
               {service.heading}
             </h1>
             <p className="measure mx-auto mb-8 px-2 font-light text-body-lg text-gray-700 dark:text-gray-300 sm:px-0">

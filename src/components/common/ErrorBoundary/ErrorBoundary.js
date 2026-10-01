@@ -42,7 +42,7 @@ class ErrorBoundary extends Component {
         className="flex min-h-viewport flex-col items-center justify-center gap-4 bg-white px-4 text-center text-gray-900 dark:bg-surface-dark dark:text-gray-100"
       >
         <p
-          className="text-display font-extrabold text-brand-600 dark:text-brand-400"
+          className="text-display font-extrabold text-brand-700 dark:text-brand-400"
           aria-hidden="true"
         >
           Oops!

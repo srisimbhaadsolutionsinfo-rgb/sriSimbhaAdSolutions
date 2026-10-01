@@ -26,10 +26,22 @@ export const heroSlides = [
 ];
 
 export const hero = {
-  eyebrow: "Sri Simbha Ad Solution",
-  title: "WELCOME TO SRI SIMBHA AD SOLUTION",
+  eyebrow: "Sri Simbha Ad Solutions",
+  title: "WELCOME TO SRI SIMBHA AD SOLUTIONS",
   headline: "We Don’t Just Show Ads.",
   subHeadline: "We Command Attention.",
+  /**
+   * The hero previously ended at the tagline, so the first screen of the site
+   * had no way to act. Every conversion path — the CTA band, the enquiry form —
+   * sits below the fold, which on a phone is several screens away. These two
+   * buttons point at the two things a first-time visitor actually wants next:
+   * to talk to the agency, or to see what it sells. Both are existing routes,
+   * not new destinations.
+   */
+  actions: {
+    primary: { label: "Get a quote", to: "/contact" },
+    secondary: { label: "See our services", to: "/services" },
+  },
   video: {
     src: bgVideo,
     /**

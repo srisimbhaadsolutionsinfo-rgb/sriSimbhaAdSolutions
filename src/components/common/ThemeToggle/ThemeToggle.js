@@ -18,6 +18,13 @@ import { useTheme } from "../../../app/ThemeProvider";
  *
  * `theme` is guaranteed to be `light` or `dark`: `ThemeProvider` resolves
  * anything else to the default before it reaches here.
+ *
+ * Sizing: the control is a 16px icon plus `p-2`, which measured 34x34px —
+ * under the 44x44px minimum touch target (WCAG 2.2 "Target Size (Minimum)",
+ * and it was the smallest hit area on the whole page). The icon and padding are
+ * unchanged, so the button *looks* the same size; it simply reserves a 44x44px
+ * hit area around itself, which is what a fingertip actually needs. The desktop
+ * header control is visually larger already and is unaffected in appearance.
  */
 const ThemeToggle = ({ className = "" }) => {
   const { theme, toggleTheme } = useTheme();
@@ -31,7 +38,7 @@ const ThemeToggle = ({ className = "" }) => {
       onClick={toggleTheme}
       aria-label={nextLabel}
       title={nextLabel}
-      className={`inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-white/70 p-2 text-gray-600 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800/70 dark:text-gray-300 dark:hover:bg-gray-700 ${className}`.trim()}
+      className={`inline-flex min-h-[2.75rem] min-w-[2.75rem] shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white/70 p-2 text-gray-600 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800/70 dark:text-gray-300 dark:hover:bg-gray-700 ${className}`.trim()}
     >
       {isDark ? (
         <Sun size={16} aria-hidden="true" />

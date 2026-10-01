@@ -34,13 +34,13 @@ const WhySimbhaSection = () => (
         return (
           <motion.li
             key={item.id}
-            className="rounded-2xl border border-gray-200 bg-white p-8 text-left backdrop-blur-lg transition-all hover:shadow-yellow-300 dark:border-white/10 dark:bg-white/10"
+            className="rounded-2xl border border-gray-200 bg-[color:var(--color-surface)] p-8 text-left transition-all hover:shadow-[var(--shadow-card-hover)] dark:border-white/10 dark:bg-white/10"
             variants={flipCard}
             custom={index}
             whileHover={{ scale: 1.08 }}
           >
             <motion.div
-              className="mb-4 text-h2 text-brand-600 dark:text-brand-400"
+              className="mb-4 text-h2 text-brand-700 dark:text-brand-400"
               whileHover={{ scale: 1.2, rotate: [0, 10, -10, 0] }}
               transition={{
                 duration: 0.5,

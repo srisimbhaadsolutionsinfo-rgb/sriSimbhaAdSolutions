@@ -30,7 +30,7 @@ const TestimonialsSection = () => (
       {testimonials.map((item, index) => (
         <motion.li
           key={item.id}
-          className="rounded-2xl border border-gray-200 bg-white/80 p-6 shadow-md backdrop-blur-xl transition-shadow hover:shadow-brand-300/20 dark:border-white/10 dark:bg-white/10"
+          className="rounded-2xl border border-gray-200 bg-[color:var(--color-surface)] p-6 transition-shadow hover:shadow-[var(--shadow-card-hover)] dark:border-white/10 dark:bg-white/10"
           variants={fadeUp}
           custom={index}
         >
@@ -38,7 +38,7 @@ const TestimonialsSection = () => (
             <blockquote className="text-lg italic leading-relaxed text-gray-800 dark:text-gray-300">
               &ldquo;{item.quote}&rdquo;
             </blockquote>
-            <figcaption className="mt-4 font-bold tracking-wide text-brand-600 dark:text-brand-400">
+            <figcaption className="mt-4 font-bold tracking-wide text-brand-700 dark:text-brand-400">
               — {item.name}
             </figcaption>
           </figure>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { useEscapeKey } from "../../../hooks";
+import { useEscapeKey, useLockBodyScroll } from "../../../hooks";
 import { navigationItems } from "../../../config/navigation.config";
 import siteConfig from "../../../config/site.config";
 import { cx } from "../../../utils/helpers";
@@ -34,6 +34,22 @@ const MobileMenu = ({
   const panelRef = useRef(null);
 
   useEscapeKey(onClose, isOpen);
+
+  /*
+   * Stop the page behind the panel from scrolling.
+   *
+   * `useLockBodyScroll` already existed and was correct, but nothing called it,
+   * so on a phone the open menu sat over content that still scrolled under the
+   * visitor's thumb: dragging on the panel's own padding moved the page
+   * underneath it, and on iOS the rubber-band effect dragged the whole document
+   * past the header. The panel is shorter than the viewport, so it reads as a
+   * sheet over a page — the page is not supposed to move while it is up.
+   *
+   * Scoped to `isOpen`, so the lock is held for exactly as long as the panel is
+   * showing, and the hook restores the previous `overflow` / `padding-right`
+   * (compensating for the scrollbar width) on the way out.
+   */
+  useLockBodyScroll(isOpen);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -70,7 +86,7 @@ const MobileMenu = ({
         <div className="mt-4 flex flex-col items-center gap-3 border-t border-gray-200 pt-4 dark:border-gray-700">
           <a
             href={`tel:+${siteConfig.contact.phoneDigits}`}
-            className="py-2 text-sm font-semibold text-brand-600 dark:text-brand-400"
+            className="py-2 text-sm font-semibold text-brand-700 dark:text-brand-400"
           >
             {siteConfig.contact.phone}
           </a>
