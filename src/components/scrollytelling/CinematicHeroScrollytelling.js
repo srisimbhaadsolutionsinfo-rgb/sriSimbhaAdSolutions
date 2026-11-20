@@ -658,6 +658,28 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
     }
   };
 
+  // Support direct touch swipes over 3D model on mobile to naturally advance or rewind services
+  const touchStartY = useRef(0);
+  const handleTouchStart = (e) => {
+    if (e.touches && e.touches.length > 0) {
+      touchStartY.current = e.touches[0].clientY;
+    }
+  };
+  const handleTouchEnd = (e) => {
+    if (!touchStartY.current || isOpeningVisible || isClimaxVisible) return;
+    const endY = e.changedTouches?.[0]?.clientY ?? touchStartY.current;
+    const deltaY = touchStartY.current - endY;
+    if (Math.abs(deltaY) > 45) {
+      if (deltaY > 0 && activeServiceIndex < 5) {
+        // Swiped UP -> Advance to next service
+        jumpToService(activeServiceIndex + 1);
+      } else if (deltaY < 0 && activeServiceIndex > 0) {
+        // Swiped DOWN -> Go back to previous service
+        jumpToService(activeServiceIndex - 1);
+      }
+    }
+  };
+
   // Single reliable source of truth: activeServiceIndex strictly governs all typography, dock, specs, and visual
   const currentService = SEQUENCE_SERVICES[activeServiceIndex] || SEQUENCE_SERVICES[0];
   const isBoundaryTransition = (serviceLocalProgress < 0.06 || serviceLocalProgress > 0.94) && activeServiceIndex < 5;
@@ -872,7 +894,10 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
           {/* 2. DEDICATED PRODUCT ANIMATION CENTERPIECE (Directly below intro, zero empty gap) */}
           <div
             ref={mobileContainerRef}
-            className="relative w-full flex-1 min-h-[150px] min-[380px]:min-h-[180px] sm:min-h-[220px] max-h-[350px] my-1 flex items-center justify-center pointer-events-none overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            className="relative w-full flex-1 min-h-[150px] min-[380px]:min-h-[180px] sm:min-h-[220px] max-h-[350px] my-1 flex items-center justify-center pointer-events-auto touch-pan-y overflow-hidden cursor-grab active:cursor-grabbing"
+            title="Swipe up or down to rotate 3D service models"
           >
             <canvas
               ref={mobileCanvasRef}
@@ -930,10 +955,10 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
         {/* Modern Paginated Progress Bar with Interactive Steps */}
         <div
           ref={dockScrollRef}
-          className="bg-[#050c18]/90 border border-white/12 rounded-full py-1.5 px-3 sm:px-4 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.45)] flex items-center gap-2 sm:gap-3"
+          className="bg-[#050c18]/90 border border-white/12 rounded-full py-1.5 px-3.5 sm:px-4 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.45)] flex items-center gap-2.5 sm:gap-3"
         >
-          {/* Subtle scroll hint text */}
-          <div className="flex items-center gap-1 text-[10px] sm:text-xs font-mono font-medium text-gray-400 border-r border-white/10 pr-2.5 sm:pr-3">
+          {/* Subtle counter */}
+          <div className="flex items-center gap-1 text-[10.5px] sm:text-xs font-mono font-medium text-gray-400 border-r border-white/10 pr-2.5 sm:pr-3">
             <span className="text-gold-bright font-bold">0{activeServiceIndex + 1}</span>
             <span className="text-gray-500">/</span>
             <span>06</span>
@@ -965,9 +990,9 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
             })}
           </div>
 
-          {/* Subtle scroll down indicator */}
-          <div className="flex items-center gap-1 pl-1 text-[9.5px] sm:text-[10.5px] font-mono text-gray-400">
-            <span className="hidden min-[380px]:inline text-gray-400">Scroll to rotate</span>
+          {/* Always visible clear scroll cue */}
+          <div className="flex items-center gap-1 text-[10px] sm:text-[11px] font-mono text-gray-300 pl-0.5 border-l border-white/10 pl-2.5">
+            <span className="font-semibold text-gray-200">Scroll</span>
             <ChevronDown className="w-3.5 h-3.5 text-gold-bright animate-bounce" />
           </div>
         </div>

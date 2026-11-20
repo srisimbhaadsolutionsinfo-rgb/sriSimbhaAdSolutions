@@ -623,11 +623,21 @@
     bottom: calc(4.75rem + max(24px, env(safe-area-inset-bottom, 0px)));
   }
 
-  /* During 3D scrollytelling service showcase, elevate or hide so it never overlaps the bottom dock on short screens */
-  @media (max-height: 800px) {
+  /* Hide completely during the 3D scrollytelling service showcase on mobile so it never obscures the CTA or bottom indicators */
+  body[data-scrollytelling-services="true"] .whatsapp-floating-btn {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(16px) scale(0.9) !important;
+  }
+
+  @media (min-width: 1024px) {
     body[data-scrollytelling-services="true"] .whatsapp-floating-btn {
-      opacity: 0.18;
-      pointer-events: none;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      bottom: 30px;
+      transform: none !important;
     }
   }
 
