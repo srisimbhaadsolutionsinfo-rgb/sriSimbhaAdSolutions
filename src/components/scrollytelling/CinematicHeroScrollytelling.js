@@ -724,14 +724,14 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
         </div>
 
         {/* Master Headline */}
-        <h1 className="text-2xl min-[380px]:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.12] sm:leading-[1.08] mb-3 sm:mb-6">
+        <h1 className="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.14] sm:leading-[1.1] mb-2.5 sm:mb-4">
           We Don't Just Show Ads.
           <br />
           <span className="gold-gradient-text">We Command Attention.</span>
         </h1>
 
         {/* Supporting text */}
-        <p className="text-xs min-[380px]:text-sm sm:text-lg text-content-secondary max-w-xl mx-auto leading-relaxed mb-5 sm:mb-8">
+        <p className="text-xs min-[380px]:text-sm sm:text-base lg:text-lg text-content-secondary max-w-xl mx-auto leading-relaxed mb-4 sm:mb-6">
           Creative advertising and digital solutions that make your brand impossible to ignore.
         </p>
 
@@ -765,10 +765,10 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
         </div>
 
         {/* Desktop Editorial Typography HUD (Zero Boxed Cards) */}
-        <div className="absolute inset-0 pointer-events-none flex flex-col justify-between pt-20 sm:pt-24 pb-16 lg:pb-20 px-6 lg:px-10 xl:px-16">
+        <div className="absolute inset-0 pointer-events-none flex flex-col justify-between pt-16 sm:pt-20 lg:pt-24 pb-14 lg:pb-18 px-6 lg:px-10 xl:px-16">
           {/* Top minimal status indicator */}
           <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
-            <span className="text-xs font-mono font-bold tracking-widest text-gold-bright uppercase">
+            <span className="text-[11px] lg:text-xs font-mono font-bold tracking-widest text-gold-bright uppercase">
               THE SIMBHA ADVERTISING UNIVERSE
             </span>
           </div>
@@ -785,34 +785,34 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
           >
             <div className="relative pl-1">
               {/* Refined category index */}
-              <div className="text-[11px] font-mono tracking-widest text-gold-bright uppercase font-bold mb-2">
+              <div className="text-[10.5px] lg:text-[11px] font-mono tracking-widest text-gold-bright uppercase font-bold mb-1.5 lg:mb-2">
                 {currentService.number} / 06 • {currentService.shortName || currentService.name}
               </div>
 
               {/* Clean Service Heading */}
-              <h1 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold text-white tracking-tight leading-[1.12] mb-1.5 lg:mb-2 drop-shadow-md">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold text-white tracking-tight leading-[1.12] mb-1.5 lg:mb-2 drop-shadow-md">
                 {currentService.name}
               </h1>
 
               {/* Tagline */}
-              <p className="text-sm lg:text-base xl:text-lg font-semibold text-gold-bright italic mb-2 lg:mb-3">
+              <p className="text-xs sm:text-sm lg:text-base xl:text-lg font-semibold text-gold-bright italic mb-2 lg:mb-2.5">
                 "{currentService.tagline}"
               </p>
 
               {/* Editorial Description */}
-              <p className="text-xs lg:text-sm xl:text-base text-gray-300 max-w-md mb-4 lg:mb-6 leading-relaxed font-normal line-clamp-4 2xl:line-clamp-none">
+              <p className="text-xs lg:text-sm xl:text-base text-gray-300 max-w-md mb-3.5 lg:mb-5 leading-relaxed font-normal line-clamp-3 2xl:line-clamp-none">
                 {currentService.description}
               </p>
 
               {/* Sleek inline capabilities */}
-              <div className="flex flex-wrap gap-2 mb-4 lg:mb-6">
+              <div className="flex flex-wrap gap-1.5 lg:gap-2 mb-3.5 lg:mb-5">
                 {currentService.specs?.slice(0, 4).map((sp, idx) => (
                   <div
                     key={idx}
                     className="inline-flex items-center gap-1.5 px-2.5 lg:px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
                   >
                     <span className="text-[9px] font-mono text-gray-400 uppercase">{sp.label}:</span>
-                    <span className="text-[10.5px] lg:text-[11px] font-bold text-white tracking-tight">{sp.value}</span>
+                    <span className="text-[10px] lg:text-[11px] font-bold text-white tracking-tight">{sp.value}</span>
                   </div>
                 ))}
               </div>
@@ -820,7 +820,7 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
               {/* Action Button */}
               <button
                 onClick={() => onOpenQuote?.(currentService.name)}
-                className="inline-flex items-center gap-2 px-5 lg:px-6 py-2.5 lg:py-3 rounded-full bg-gradient-to-r from-gold-bright to-gold-primary text-navy-primary text-xs lg:text-sm font-bold shadow-[0_4px_16px_rgba(232,184,63,0.35)] hover:shadow-[0_6px_22px_rgba(255,201,40,0.5)] hover:brightness-105 transition-all"
+                className="inline-flex items-center gap-2 px-4.5 lg:px-6 py-2 lg:py-2.5 rounded-full bg-gradient-to-r from-gold-bright to-gold-primary text-navy-primary text-xs lg:text-sm font-bold shadow-[0_4px_16px_rgba(232,184,63,0.35)] hover:shadow-[0_6px_22px_rgba(255,201,40,0.5)] hover:brightness-105 transition-all"
               >
                 <span>Enquire About {currentService.shortName || currentService.name}</span>
                 <ChevronRight className="w-4 h-4" />
@@ -828,7 +828,7 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
             </div>
           </div>
 
-          <div className="h-6 lg:h-10" />
+          <div className="h-4 lg:h-8" />
         </div>
       </div>
 
@@ -923,13 +923,13 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
       {/* SERVICE NAVIGATION DOCK (RESPONSIVE HORIZONTAL TOUCH DOCK)     */}
       {/* ============================================================== */}
       <div
-        className={`absolute bottom-1.5 sm:bottom-6 left-0 sm:left-1/2 sm:-translate-x-1/2 z-30 w-full sm:max-w-3xl px-2 sm:px-4 transition-opacity duration-500 pb-[env(safe-area-inset-bottom)] ${
+        className={`absolute bottom-2 sm:bottom-4 md:bottom-6 left-0 sm:left-1/2 sm:-translate-x-1/2 z-30 w-full sm:max-w-2xl md:max-w-3xl px-2 sm:px-4 transition-opacity duration-500 pb-[env(safe-area-inset-bottom)] ${
           !isOpeningVisible && !isClimaxVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div
           ref={dockScrollRef}
-          className="bg-[#050c18]/85 border border-white/10 rounded-full p-1 px-1.5 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.35)] flex items-center gap-1 sm:gap-1.5 overflow-x-auto sm:overflow-visible scrollbar-none scroll-smooth touch-pan-x"
+          className="bg-[#050c18]/85 border border-white/10 rounded-full p-1 px-1.5 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.35)] flex items-center justify-between sm:justify-center gap-1 sm:gap-1.5 overflow-x-auto sm:overflow-visible scrollbar-none scroll-smooth touch-pan-x"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {SEQUENCE_SERVICES.map((srv, idx) => {
@@ -940,7 +940,7 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
                 key={srv.id}
                 ref={(el) => (dockButtonRefs.current[idx] = el)}
                 onClick={() => jumpToService(idx)}
-                className={`flex-shrink-0 sm:flex-1 py-1.5 px-2.5 min-[360px]:px-3 sm:px-3 rounded-full text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono transition-all duration-250 whitespace-nowrap text-center ${
+                className={`flex-shrink-0 sm:flex-1 py-1.5 px-2.5 min-[360px]:px-3 sm:px-2.5 md:px-3 rounded-full text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono transition-all duration-250 whitespace-nowrap text-center ${
                   isActive
                     ? "bg-gradient-to-r from-gold-bright to-gold-primary text-navy-primary shadow-[0_2px_8px_rgba(232,184,63,0.3)] font-bold"
                     : "text-gray-400 hover:text-white hover:bg-white/5 font-medium"
@@ -989,12 +989,12 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
           </span>
         </div>
 
-        <h2 className="text-2xl min-[380px]:text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-3xl leading-tight mb-3 sm:mb-4">
+        <h2 className="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-3xl leading-tight mb-2.5 sm:mb-4">
           One Vision. Six Powerful Ways to{" "}
           <span className="gold-gradient-text">Command Attention.</span>
         </h2>
 
-        <p className="text-xs min-[380px]:text-sm sm:text-base text-gray-300 max-w-xl mx-auto mb-6 sm:mb-8 leading-relaxed font-normal">
+        <p className="text-xs min-[380px]:text-sm sm:text-base text-gray-300 max-w-xl mx-auto mb-5 sm:mb-7 leading-relaxed font-normal">
           From high-impact roadside LED displays to digital campaigns and cinematic ad films,
           Sri Simbha transforms visibility into market dominance.
         </p>

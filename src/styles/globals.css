@@ -623,6 +623,14 @@
     bottom: calc(4.75rem + max(24px, env(safe-area-inset-bottom, 0px)));
   }
 
+  /* During 3D scrollytelling service showcase, elevate or hide so it never overlaps the bottom dock on short screens */
+  @media (max-height: 800px) {
+    body[data-scrollytelling-services="true"] .whatsapp-floating-btn {
+      opacity: 0.18;
+      pointer-events: none;
+    }
+  }
+
   /* Hide gracefully when mobile menu drawer is open */
   body[data-mobile-menu-open="true"] .whatsapp-floating-btn {
     opacity: 0 !important;
