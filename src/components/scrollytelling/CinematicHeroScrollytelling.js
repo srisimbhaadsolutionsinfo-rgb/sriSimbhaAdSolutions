@@ -920,37 +920,56 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
       </div>
 
       {/* ============================================================== */}
-      {/* SERVICE NAVIGATION DOCK (RESPONSIVE HORIZONTAL TOUCH DOCK)     */}
+      {/* SERVICE SCROLL PROGRESS & PAGINATED STEPPER (OPTION A)         */}
       {/* ============================================================== */}
       <div
-        className={`absolute bottom-2 sm:bottom-4 md:bottom-6 left-0 sm:left-1/2 sm:-translate-x-1/2 z-30 w-full sm:max-w-2xl md:max-w-3xl px-2 sm:px-4 transition-opacity duration-500 pb-[env(safe-area-inset-bottom)] ${
+        className={`absolute bottom-2 sm:bottom-4 md:bottom-6 left-0 sm:left-1/2 sm:-translate-x-1/2 z-30 w-full sm:max-w-xl md:max-w-2xl px-3 sm:px-4 transition-all duration-500 pb-[env(safe-area-inset-bottom)] flex flex-col items-center gap-1.5 ${
           !isOpeningVisible && !isClimaxVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
+        {/* Modern Paginated Progress Bar with Interactive Steps */}
         <div
           ref={dockScrollRef}
-          className="bg-[#050c18]/85 border border-white/10 rounded-full p-1 px-1.5 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.35)] flex items-center justify-between sm:justify-center gap-1 sm:gap-1.5 overflow-x-auto sm:overflow-visible scrollbar-none scroll-smooth touch-pan-x"
-          style={{ WebkitOverflowScrolling: "touch" }}
+          className="bg-[#050c18]/90 border border-white/12 rounded-full py-1.5 px-3 sm:px-4 backdrop-blur-md shadow-[0_6px_24px_rgba(0,0,0,0.45)] flex items-center gap-2 sm:gap-3"
         >
-          {SEQUENCE_SERVICES.map((srv, idx) => {
-            const isActive = activeServiceIndex === idx;
-            const shortLabels = ["01 LED", "02 VAN", "03 TEA CUP", "04 DIGITAL", "05 WEB", "06 FILM"];
-            return (
-              <button
-                key={srv.id}
-                ref={(el) => (dockButtonRefs.current[idx] = el)}
-                onClick={() => jumpToService(idx)}
-                className={`flex-shrink-0 sm:flex-1 py-1.5 px-2.5 min-[360px]:px-3 sm:px-2.5 md:px-3 rounded-full text-[10px] min-[360px]:text-[10.5px] sm:text-xs font-mono transition-all duration-250 whitespace-nowrap text-center ${
-                  isActive
-                    ? "bg-gradient-to-r from-gold-bright to-gold-primary text-navy-primary shadow-[0_2px_8px_rgba(232,184,63,0.3)] font-bold"
-                    : "text-gray-400 hover:text-white hover:bg-white/5 font-medium"
-                }`}
-                aria-label={`Jump to ${srv.name}`}
-              >
-                {shortLabels[idx]}
-              </button>
-            );
-          })}
+          {/* Subtle scroll hint text */}
+          <div className="flex items-center gap-1 text-[10px] sm:text-xs font-mono font-medium text-gray-400 border-r border-white/10 pr-2.5 sm:pr-3">
+            <span className="text-gold-bright font-bold">0{activeServiceIndex + 1}</span>
+            <span className="text-gray-500">/</span>
+            <span>06</span>
+          </div>
+
+          {/* Interactive Paginated Step Indicators */}
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {SEQUENCE_SERVICES.map((srv, idx) => {
+              const isActive = activeServiceIndex === idx;
+              const isPassed = activeServiceIndex > idx;
+              return (
+                <button
+                  key={srv.id}
+                  ref={(el) => (dockButtonRefs.current[idx] = el)}
+                  onClick={() => jumpToService(idx)}
+                  className={`group relative h-2 rounded-full transition-all duration-300 focus:outline-none ${
+                    isActive
+                      ? "w-8 sm:w-10 bg-gradient-to-r from-gold-bright to-gold-primary shadow-[0_0_10px_rgba(255,201,40,0.6)]"
+                      : isPassed
+                      ? "w-2.5 sm:w-3 bg-white/40 hover:bg-white/70"
+                      : "w-2 sm:w-2.5 bg-white/15 hover:bg-white/40"
+                  }`}
+                  aria-label={`Jump to service ${idx + 1}: ${srv.name}`}
+                  title={`${srv.number} • ${srv.shortName || srv.name}`}
+                >
+                  <span className="sr-only">{srv.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Subtle scroll down indicator */}
+          <div className="flex items-center gap-1 pl-1 text-[9.5px] sm:text-[10.5px] font-mono text-gray-400">
+            <span className="hidden min-[380px]:inline text-gray-400">Scroll to rotate</span>
+            <ChevronDown className="w-3.5 h-3.5 text-gold-bright animate-bounce" />
+          </div>
         </div>
       </div>
 
