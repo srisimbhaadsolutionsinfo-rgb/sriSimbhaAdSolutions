@@ -4,11 +4,13 @@
   "outputDirectory": "build",
   "installCommand": "npm ci",
   "framework": "create-react-app",
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/((?!api/).*)",
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
