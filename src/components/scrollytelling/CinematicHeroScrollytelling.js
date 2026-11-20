@@ -5,6 +5,7 @@ import {
   ChevronDown,
   Sparkles,
   ChevronRight,
+  ArrowRight,
 } from "lucide-react";
 
 import logoImg from "../../assets/images/branding/simba-logo.jpg";
@@ -714,19 +715,15 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
           pointerEvents: scrollProgress < 0.035 ? "auto" : "none",
         }}
       >
-        {/* Authentic Sri Simbha Lion Crest with Concentric Orbital Halo */}
+        {/* Authentic Sri Simbha Emblem with Apple-Grade Glass Finish */}
         <div className="relative group mb-4 min-[380px]:mb-6 sm:mb-8">
-          <div className="absolute -inset-6 rounded-full bg-gold-primary/20 blur-xl opacity-60" />
-          <div
-            className="absolute -inset-3 rounded-full border border-gold-primary/25 pointer-events-none animate-spin"
-            style={{ animationDuration: "35s" }}
-          />
+          <div className="absolute -inset-8 rounded-full bg-gold-primary/20 blur-2xl opacity-70 pointer-events-none" />
 
-          <div className="relative w-20 h-20 min-[380px]:w-24 min-[380px]:h-24 sm:w-28 sm:h-28 rounded-2xl p-1 bg-navy-secondary/90 border border-gold-primary/40 shadow-[0_0_35px_rgba(232,184,63,0.25)] flex items-center justify-center overflow-hidden">
+          <div className="relative w-20 h-20 min-[380px]:w-24 min-[380px]:h-24 sm:w-28 sm:h-28 rounded-3xl p-2 bg-navy-secondary/85 border border-gold-primary/40 backdrop-blur-xl shadow-[0_0_40px_rgba(232,184,63,0.3)] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105">
             <img
               src={logoImg}
               alt="Sri Simbha Ad Solutions Logo"
-              className="w-full h-full object-contain rounded-xl"
+              className="w-full h-full object-contain rounded-2xl"
               width={112}
               height={112}
             />
@@ -738,8 +735,8 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
         </div>
 
         {/* Master Tagline Badge */}
-        <div className="inline-flex items-center gap-2 px-3 min-[380px]:px-4 py-1.5 rounded-full bg-navy-secondary/60 border border-gold-primary/25 backdrop-blur-md mb-3.5 min-[380px]:mb-5 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-gold-bright" />
+        <div className="inline-flex items-center gap-2 px-3.5 min-[380px]:px-4 py-1.5 rounded-full bg-navy-secondary/70 border border-gold-primary/30 backdrop-blur-md mb-3.5 min-[380px]:mb-5 shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-bright animate-pulse" />
           <span className="text-[10px] min-[380px]:text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-gold-bright uppercase">
             3D CINEMATIC ADVERTISING EXPERIENCE
           </span>
@@ -1002,60 +999,67 @@ const CinematicHeroScrollytelling = ({ onOpenQuote, onExploreServices }) => {
       {/* SCENE 03: FINAL BRAND REVEAL & CLIMAX                         */}
       {/* ============================================================== */}
       <div
-        className={`absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 transition-all duration-700 ease-out ${
+        className={`absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-8 transition-all duration-700 ease-out overflow-hidden ${
           isClimaxVisible
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-16 pointer-events-none"
         }`}
       >
-        <div className="relative group mb-4 sm:mb-6">
-          <div className="absolute -inset-10 rounded-full bg-gold-primary/30 blur-3xl opacity-80 animate-pulse" />
-          <div
-            className="absolute -inset-6 rounded-full border border-gold-primary/40 pointer-events-none animate-spin"
-            style={{ animationDuration: "20s" }}
-          />
+        {/* Apple-style deep radial golden stage lighting */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gold-primary/10 rounded-full blur-[140px] pointer-events-none" />
 
-          <div className="relative w-24 h-24 min-[380px]:w-28 min-[380px]:h-28 sm:w-36 sm:h-36 rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-b from-gold-bright via-gold-primary to-navy-secondary shadow-[0_0_60px_rgba(232,184,63,0.4)] flex items-center justify-center overflow-hidden">
+        {/* Refined Circular Glass Crest */}
+        <div className="relative group mb-5 sm:mb-6">
+          <div className="absolute -inset-10 rounded-full bg-gold-primary/20 blur-3xl opacity-80 pointer-events-none" />
+
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-2.5 bg-navy-secondary/85 border border-gold-primary/40 backdrop-blur-xl shadow-[0_0_50px_rgba(232,184,63,0.3)] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105">
             <img
               src={logoImg}
               alt="Sri Simbha Ad Solutions Crest"
-              className="w-full h-full object-cover rounded-[18px] sm:rounded-[22px]"
-              width={144}
-              height={144}
+              className="w-full h-full object-cover rounded-full"
+              width={112}
+              height={112}
             />
           </div>
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-navy-secondary/80 border border-gold-primary/30 backdrop-blur-md mb-3.5 sm:mb-4 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-gold-bright" />
-          <span className="text-[10px] min-[380px]:text-xs font-mono font-semibold tracking-wider text-gold-bright uppercase">
-            INTEGRATED MEDIA ECOSYSTEM
+        {/* Apple-style Micro Eyebrow */}
+        <div className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-secondary/80 border border-gold-primary/30 backdrop-blur-md mb-4 sm:mb-5 shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-gold-bright animate-pulse" />
+          <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-gold-bright uppercase">
+            THE COMPLETE SIMBHA ECOSYSTEM
           </span>
         </div>
 
-        <h2 className="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-3xl leading-tight mb-2.5 sm:mb-4">
-          One Vision. Six Powerful Ways to{" "}
-          <span className="gold-gradient-text">Command Attention.</span>
+        {/* Majestic Balanced Climax Headline */}
+        <h2 className="relative z-10 text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.08] mb-3.5 sm:mb-5">
+          One Vision. Six Media Channels.{" "}
+          <span className="block mt-1 sm:mt-2 gold-gradient-text">
+            Engineered to Dominate.
+          </span>
         </h2>
 
-        <p className="text-xs min-[380px]:text-sm sm:text-base text-gray-300 max-w-xl mx-auto mb-5 sm:mb-7 leading-relaxed font-normal">
-          From high-impact roadside LED displays to digital campaigns and cinematic ad films,
-          Sri Simbha transforms visibility into market dominance.
+        {/* Balanced Editorial Subtitle */}
+        <p className="relative z-10 text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-7 sm:mb-9 leading-relaxed font-normal">
+          From high-impact highway LED screens to dynamic transit displays and targeted digital marketing, Sri Simbha transforms visibility into commercial market dominance.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none">
+        {/* Apple-Grade Responsive Dual Actions */}
+        <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none mx-auto">
           <button
             onClick={() => onOpenQuote?.("All Services")}
-            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-gold-bright to-gold-primary text-navy-primary font-bold text-xs min-[380px]:text-sm sm:text-base shadow-[0_8px_30px_rgba(232,184,63,0.4)] hover:brightness-105 active:scale-[0.98] transition-all"
+            className="gold-btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 rounded-full font-bold text-xs sm:text-sm text-navy-primary shadow-[0_8px_30px_rgba(232,184,63,0.35)] hover:shadow-[0_12px_40px_rgba(255,201,40,0.5)] hover:brightness-105 active:scale-[0.98] transition-all cursor-pointer"
           >
-            Get a Free Quote
+            <span>Get a Free Quote</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
 
           <a
             href="#work"
-            className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-full border border-gold-primary/40 bg-navy-secondary/60 text-white font-semibold text-xs min-[380px]:text-sm hover:bg-navy-secondary hover:border-gold-bright active:scale-[0.98] transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 rounded-full border border-white/20 bg-white/5 text-white font-semibold text-xs sm:text-sm backdrop-blur-md hover:bg-white/10 hover:border-gold-primary/40 active:scale-[0.98] transition-all cursor-pointer"
           >
-            Explore Full Portfolio ↓
+            <span>Explore All 6 Channels</span>
+            <ChevronDown className="w-4 h-4 text-gold-primary" />
           </a>
         </div>
       </div>

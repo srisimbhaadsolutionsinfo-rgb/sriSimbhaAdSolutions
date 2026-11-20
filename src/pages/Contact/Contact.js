@@ -34,10 +34,16 @@ const Contact = () => {
         {/* Breadcrumb Navigation */}
         <Breadcrumbs items={contactPage.breadcrumbs} className="mb-6 sm:mb-8" />
 
-        {/* 2. CLEAN CONTACT HERO */}
-        <div className="mb-8 lg:mb-10 max-w-3xl">
+        {/* 2. CLEAN APPLE-INSPIRED CONTACT HERO */}
+        <div className="mb-10 lg:mb-14 max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-secondary/80 border border-gold-primary/30 mb-3 backdrop-blur-md">
+            <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-gold-bright uppercase">
+              DIRECT AGENCY COMMUNICATIONS
+            </span>
+          </div>
+
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3">
-            Contact <span className="text-gold-primary">Us</span>
+            Contact <span className="gold-gradient-text">Us</span>
           </h1>
           <p className="text-base sm:text-lg text-gray-300 font-normal leading-relaxed">
             Have a project in mind? Tell us what you need. Our team will help you find the right advertising solution.
@@ -48,13 +54,13 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
           {/* LEFT COLUMN: Essential Contact Information */}
           <div className="lg:col-span-4 xl:col-span-4 flex flex-col">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-5 p-6 rounded-3xl border border-white/10 bg-navy-secondary/60 backdrop-blur-md shadow-lg">
               {/* Email */}
               <a
                 href={`mailto:${siteConfig.contact.email}`}
                 className="group flex items-start gap-4 transition-colors"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-navy-secondary/60 text-gold-primary group-hover:border-gold-primary/40 group-hover:text-gold-bright transition-all">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-navy-primary text-gold-primary group-hover:border-gold-primary/40 group-hover:text-gold-bright transition-all shadow-md">
                   <Mail className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
@@ -72,7 +78,7 @@ const Contact = () => {
                 href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
                 className="group flex items-start gap-4 transition-colors"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-navy-secondary/60 text-gold-primary group-hover:border-gold-primary/40 group-hover:text-gold-bright transition-all">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-navy-primary text-gold-primary group-hover:border-gold-primary/40 group-hover:text-gold-bright transition-all shadow-md">
                   <Phone className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
@@ -92,7 +98,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="group flex items-start gap-4 transition-colors"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-navy-secondary/60 text-gold-primary group-hover:border-gold-primary/40 group-hover:text-gold-bright transition-all">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-navy-primary text-gold-primary group-hover:border-gold-primary/40 group-hover:text-gold-bright transition-all shadow-md">
                   <MapPin className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
@@ -104,12 +110,12 @@ const Contact = () => {
                   </span>
                 </div>
               </a>
-            </div>
 
-            {/* Compact Availability Notice (backed by verified business hours in siteConfig) */}
-            <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-2.5 text-xs text-gray-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-              <span>Mon – Sat: 9:00 AM – 8:00 PM IST</span>
+              {/* Availability Notice */}
+              <div className="pt-4 border-t border-white/10 flex items-center gap-2.5 text-xs text-gray-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                <span>Mon – Sat: 9:00 AM – 8:00 PM IST</span>
+              </div>
             </div>
           </div>
 

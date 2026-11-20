@@ -42,38 +42,42 @@ const About = () => {
             <Breadcrumbs items={aboutPage.breadcrumbs} />
           </div>
 
-          {/* 1. CLEAN EDITORIAL HERO */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pb-8 border-b border-white/10">
+          {/* 1. CLEAN EDITORIAL HERO WITH 3D CREST STAGE */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pb-10 border-b border-white/10">
             {/* Left: Heading, Core Statement & Stats */}
-            <div className="lg:col-span-5 flex flex-col">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-2">
-                About <span className="text-gold-primary">Sri Simbha</span>
+            <div className="lg:col-span-6 flex flex-col">
+              <span className="text-xs font-mono font-semibold tracking-wider text-gold-primary uppercase block mb-1.5">
+                ESTABLISHED 2019 • VISAKHAPATNAM
+              </span>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3">
+                About <span className="gold-gradient-text">Sri Simbha</span>
               </h1>
-              <p className="text-sm sm:text-base text-gray-300 font-normal leading-relaxed mb-5">
+              <p className="text-sm sm:text-base text-gray-300 font-normal leading-relaxed mb-6">
                 {aboutPage.intro}
               </p>
 
-              <div className="rounded-xl border border-white/10 bg-navy-secondary/60 p-4 mb-5">
+              <div className="rounded-2xl border border-gold-primary/20 bg-gradient-to-r from-navy-secondary/90 to-[#071124] p-4 sm:p-5 mb-6 shadow-lg backdrop-blur-sm">
                 <p className="text-xs sm:text-sm font-medium text-gold-bright italic leading-relaxed">
                   "We don't merely place advertisements. We transform physical journeys and digital touchpoints into commercial attention."
                 </p>
               </div>
 
               {/* Compact Agency Facts */}
-              <div className="grid grid-cols-1 min-[360px]:grid-cols-2 gap-2.5 sm:gap-3">
-                <div className="rounded-xl border border-white/10 bg-navy-secondary/60 p-3 sm:p-3.5">
-                  <span className="block text-xl sm:text-2xl font-bold text-gold-primary">100+</span>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-2xl border border-white/10 bg-navy-secondary/70 p-4">
+                  <span className="block text-2xl sm:text-3xl font-extrabold text-gold-primary">100+</span>
                   <span className="text-xs text-gray-400 font-medium">Prime Display Assets</span>
                 </div>
-                <div className="rounded-xl border border-white/10 bg-navy-secondary/60 p-3 sm:p-3.5">
-                  <span className="block text-xl sm:text-2xl font-bold text-gold-primary">Est. 2019</span>
+                <div className="rounded-2xl border border-white/10 bg-navy-secondary/70 p-4">
+                  <span className="block text-2xl sm:text-3xl font-extrabold text-gold-primary">Est. 2019</span>
                   <span className="text-xs text-gray-400 font-medium">Visakhapatnam HQ</span>
                 </div>
               </div>
             </div>
 
-            {/* Right: Narrative Story */}
-            <div className="lg:col-span-7 flex flex-col justify-center space-y-3.5 text-sm sm:text-base text-gray-300 font-normal leading-relaxed pt-1">
+            {/* Right: Narrative Story + 3D Crest Badge */}
+            <div className="lg:col-span-6 flex flex-col justify-center space-y-4 text-sm sm:text-base text-gray-300 font-normal leading-relaxed p-6 sm:p-8 rounded-3xl border border-white/10 bg-gradient-to-b from-navy-secondary/60 to-[#050c18] backdrop-blur-md shadow-xl">
               {aboutPage.story.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -88,17 +92,17 @@ const About = () => {
                 return (
                   <div
                     key={principle.id}
-                    className="rounded-2xl border border-white/10 bg-navy-secondary/60 p-5 sm:p-6 backdrop-blur-sm shadow-md"
+                    className="rounded-2xl border border-white/10 bg-navy-secondary/60 p-6 sm:p-7 backdrop-blur-sm shadow-md transition-all duration-300 hover:border-gold-primary/30"
                   >
-                    <div className="flex items-center gap-2.5 mb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-navy-primary text-gold-primary">
-                        <Icon className="h-4 w-4" aria-hidden="true" />
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-navy-primary text-gold-primary">
+                        <Icon className="h-5 w-5" aria-hidden="true" />
                       </div>
-                      <h2 className="text-lg font-bold text-white tracking-tight">
+                      <h2 className="text-xl font-bold text-white tracking-tight">
                         {principle.title}
                       </h2>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed">
+                    <p className="text-sm text-gray-300 font-normal leading-relaxed">
                       {principle.body}
                     </p>
                   </div>
@@ -107,47 +111,14 @@ const About = () => {
             </div>
           </div>
 
-          {/* 3. COMPANY MILESTONES */}
+          {/* 3. CORE PRINCIPLES & ADVANTAGES */}
           <div className="relative z-10 mt-section w-full">
-            <div className="mb-5">
-              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                Company <span className="text-gold-primary">Milestones</span>
+            <div className="mb-6 text-center max-w-xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
+                Why Brands Choose <span className="text-gold-primary">Sri Simbha</span>
               </h2>
-              <p className="mt-1 text-xs sm:text-sm text-gray-400">
-                Key steps in building our regional media and outdoor advertising network.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-              {milestones.map((milestone) => (
-                <div
-                  key={milestone.id}
-                  className="rounded-2xl border border-white/10 bg-navy-secondary/60 p-5 backdrop-blur-sm flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-gold-primary block mb-1">
-                      {milestone.year}
-                    </span>
-                    <h3 className="text-sm sm:text-base font-bold text-white mb-1.5">
-                      {milestone.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed">
-                      {milestone.body}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* 4. WHAT WE STAND FOR (VALUES) */}
-          <div className="relative z-10 mt-section w-full">
-            <div className="mb-5">
-              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                What We <span className="text-gold-primary">Stand For</span>
-              </h2>
-              <p className="mt-1 text-xs sm:text-sm text-gray-400">
-                The core operating principles behind every campaign we execute.
+              <p className="text-sm text-gray-300 font-normal">
+                Direct media ownership, transparent terms, and complete campaign execution.
               </p>
             </div>
 
@@ -157,12 +128,12 @@ const About = () => {
                 return (
                   <div
                     key={value.id}
-                    className="rounded-2xl border border-white/10 bg-navy-secondary/60 p-5 backdrop-blur-sm text-left"
+                    className="group rounded-2xl border border-white/10 bg-navy-secondary/60 p-5 sm:p-6 backdrop-blur-sm text-left transition-all duration-300 hover:border-gold-primary/40 hover:-translate-y-1 hover:shadow-lg"
                   >
-                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-navy-primary text-gold-primary">
-                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    <div className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-navy-primary text-gold-primary group-hover:border-gold-primary/40 group-hover:text-gold-bright transition-colors">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
-                    <h3 className="text-sm sm:text-base font-bold text-white mb-1.5">
+                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-gold-primary transition-colors">
                       {value.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed">
@@ -174,76 +145,40 @@ const About = () => {
             </div>
           </div>
 
-          {/* 5. WHY BUSINESSES CHOOSE US */}
-          <div className="relative z-10 mt-section w-full">
-            <div className="mb-5">
-              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                Why Businesses <span className="text-gold-primary">Choose Us</span>
-              </h2>
-              <p className="mt-1 text-xs sm:text-sm text-gray-400">
-                Direct execution, transparent pricing, and measurable reach across Andhra Pradesh.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              {whyChooseUs.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.id}
-                    className="rounded-2xl border border-white/10 bg-navy-secondary/60 p-5 backdrop-blur-sm flex items-start gap-3.5"
-                  >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-navy-primary text-gold-primary">
-                      <Icon className="h-4 w-4" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-bold text-white mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed">
-                        {item.body}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* 6. TEAM LEADERSHIP & SERVICE COVERAGE */}
+          {/* 4. TEAM LEADERSHIP & SERVICE COVERAGE */}
           <div className="relative z-10 mt-section w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
               {/* Leadership Desk */}
-              <div className="lg:col-span-7 rounded-2xl border border-white/10 bg-navy-secondary/60 p-5 sm:p-6 backdrop-blur-sm flex flex-col justify-center">
-                <div className="flex items-center gap-2.5 mb-2.5">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-navy-primary text-gold-primary">
-                    <TeamIcon className="h-4 w-4" aria-hidden="true" />
+              <div className="lg:col-span-7 rounded-2xl border border-white/10 bg-navy-secondary/60 p-6 sm:p-7 backdrop-blur-sm flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-navy-primary text-gold-primary">
+                    <TeamIcon className="h-5 w-5" aria-hidden="true" />
                   </div>
-                  <h2 className="text-lg font-bold text-white tracking-tight">
+                  <h2 className="text-xl font-bold text-white tracking-tight">
                     {aboutPage.team.title}
                   </h2>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed">
+                <p className="text-sm text-gray-300 font-normal leading-relaxed">
                   {aboutPage.team.body}
                 </p>
               </div>
 
               {/* Service Areas */}
-              <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-navy-secondary/60 p-5 sm:p-6 backdrop-blur-sm flex flex-col justify-center">
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-gold-primary mb-2.5 flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5" />
+              <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-navy-secondary/60 p-6 sm:p-7 backdrop-blur-sm flex flex-col justify-center">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-gold-primary mb-3 flex items-center gap-1.5">
+                  <MapPin className="h-4 w-4" />
                   <span>Where We Operate</span>
                 </h3>
-                <ul className="flex flex-wrap gap-1.5 mb-2.5">
+                <ul className="flex flex-wrap gap-2 mb-3">
                   {serviceAreas.map((area) => (
                     <li key={area}>
-                      <span className="inline-block rounded-lg bg-navy-primary/80 border border-white/10 px-2.5 py-1 text-xs text-gray-300 font-mono">
+                      <span className="inline-block rounded-lg bg-navy-primary/90 border border-white/10 px-3 py-1 text-xs text-gray-200 font-mono">
                         {area}
                       </span>
                     </li>
                   ))}
                 </ul>
-                <p className="text-[11px] text-gray-400">
+                <p className="text-xs text-gray-400">
                   Digital marketing, web development, and ad films are delivered remotely across India.
                 </p>
               </div>
